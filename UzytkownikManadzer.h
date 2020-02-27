@@ -22,6 +22,7 @@ class UzytkownikManadzer
     PlikZUzytkownikami plikZUzytkownikami;
 
 public:
+    UzytkownikManadzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {};
     void wczytajUzytkownikowZPliku();
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
