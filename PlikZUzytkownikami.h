@@ -14,12 +14,13 @@ class PlikZUzytkownikami
     const string nazwaPlikuZUzytkownikami;
     bool czyPlikJestPusty();
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
-
+    vector<Uzytkownik> uzytkownicy;
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
  public:
      PlikZUzytkownikami(string NAZWAPLIKUZUZYTKOWNIKAMI): nazwaPlikuZUzytkownikami (NAZWAPLIKUZUZYTKOWNIKAMI) {};
 
     vector <Uzytkownik> wczytajUzytkownikowZPliku();
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
+    void zapiszWszystkichUzytkownikowDoPliku(Uzytkownik uzytkownik);
 };
 #endif
