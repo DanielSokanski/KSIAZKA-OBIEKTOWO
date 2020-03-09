@@ -11,19 +11,23 @@
 #include"UzytkownikManadzer.h"
 #include"PlikZUzytkownikami.h"
 #include"Adresat.h"
+#include"Uzytkownik.h"
 using namespace std;
 
 class AdresatManager
 {
-    int idZalogowanegoUzytkownika;
-    int idOstatniegoAdresata;
+    Uzytkownik uzytkownik;
+    int idOstatniegoAdresata=1;
     vector<Adresat> adresaci;
     Adresat podajDaneNowegoAdresata();
 public:
     //AdresatManadzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {};
     //wczytajIdOstatniegoAdresata()
+    int idZalogowanegoUzytkownika = uzytkownik.pobierzId();
     string wczytajLinie1();
     char wczytajZnak1();
+    void wyswietlDaneAdresata();
+    void wyswietlWszystkichAdresatow();
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     int dodajAdresata();
     char wybierzOpcjeZMenuUzytkownika();

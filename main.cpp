@@ -30,10 +30,15 @@ int main()
             case '9':
                 exit(0);
                 break;
+            case '3':
+                ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+                system("pause");
+                break;
             default:
                 cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
                 system("pause");
                 break;
+
             }
         }
         else
@@ -59,7 +64,7 @@ int main()
                 //wyszukajAdresatowPoNazwisku(adresaci);
                 break;
             case '4':
-                //wyswietlWszystkichAdresatow(adresaci);
+                ksiazkaAdresowa.wyswietlWszystkichAdresatow();
                 break;
             case '5':
                 //idUsunietegoAdresata = usunAdresata(adresaci);
@@ -69,11 +74,11 @@ int main()
                 //edytujAdresata(adresaci);
                 break;
             case '7':
-                //zmianaHaslaZalogowanegoUzytkownika(uzytkownicy, idZalogowanegoUzytkownika);
+                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
                 break;
             case '8':
-                //idZalogowanegoUzytkownika = 0;
-                //adresaci.clear();
+                idZalogowanegoUzytkownika = 0;
+                adresaci.clear();
                 break;
             }
         }
