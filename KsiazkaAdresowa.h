@@ -17,12 +17,12 @@ public:
         uzytkownikManadzer(NazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
     {
     adresatManager = NULL;
-    }
+    };
     ~KsiazkaAdresowa()
     {
         delete adresatManager;
         adresatManager = NULL;
-    }
+    };
     bool czyUzytkownikJestZalogowany();
     char wybierzOpcjeZMenuGlownego();
     char wybierzOpcjeZMenuUzytkownika();
@@ -31,7 +31,7 @@ public:
     void wypiszWszystkichUzytkownikow();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogowanieUzytkownika();
-    int dodajAdresata();
+    void dodajAdresata();
     void wyswietlWszystkichAdresatow();
 
 };

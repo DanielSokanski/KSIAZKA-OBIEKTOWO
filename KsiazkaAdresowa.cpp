@@ -11,7 +11,7 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
 
 char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika()
 {
-    adresatManager->wybierzOpcjeZMenuUzytkownika();
+    adresatManager -> wybierzOpcjeZMenuUzytkownika();
 }
 
 void KsiazkaAdresowa::logowanieUzytkownika()
@@ -39,11 +39,11 @@ void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
     uzytkownikManadzer.zmianaHaslaZalogowanegoUzytkownika();
 }
 
-int KsiazkaAdresowa::dodajAdresata()
+void KsiazkaAdresowa::dodajAdresata()
 {
     if (uzytkownikManadzer.czyUzytkownikJestZalogowany())
     {
-        adresatManager -> dodajAdresata();
+        adresatManager->dodajAdresata();
     }
     else
     {

@@ -54,7 +54,7 @@ int main()
             switch (wybor)
             {
             case '1':
-                idOstatniegoAdresata = ksiazkaAdresowa.dodajAdresata();
+                ksiazkaAdresowa.dodajAdresata();
                 break;
             case '2':
                 //wyszukajAdresatowPoImieniu(adresaci);

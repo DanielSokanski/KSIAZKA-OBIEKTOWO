@@ -1,13 +1,12 @@
 #include "AdresatManager.h"
 
-//void AdresatManager::dodajAdresata()
 
 Adresat AdresatManager::podajDaneNowegoAdresata()
 {
     Adresat adresat;
     string imie, nazwisko, numerTelefonu, email, adres;
 
-    adresat.ustawId((plikZAdresami.pobierzIdOstatniegoAdresata()+1));
+    adresat.ustawId((plikZAdresatami.pobierzIdOstatniegoAdresata()+1));
     adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
@@ -45,7 +44,7 @@ void AdresatManager::dodajAdresata()
     adresat = podajDaneNowegoAdresata();
 
     adresaci.push_back(adresat);
-    if (plikZAdresami.dopiszAdresataDoPliku(adresat))
+    if (plikZAdresatami.dopiszAdresataDoPliku(adresat))
         cout << "Nowy adresat zostal dodany." << endl;
     else
         cout << "Blad. Nie udalo sie dodac nowego adresata do pliku." << endl;
@@ -79,9 +78,9 @@ char AdresatManager::wybierzOpcjeZMenuUzytkownika()
     return wybor;
 }
 
-void AdresatManager::wyswietlDaneAdresata()
+void AdresatManager::wyswietlDaneAdresata(Adresat adresat)
 {
-    Adresat adresat;
+
     cout << endl << "Id:                 " << adresat.pobierzId() << endl;
     cout << "Imie:               " << adresat.pobierzImie() << endl;
     cout << "Nazwisko:           " << adresat.pobierzNazwisko() << endl;
