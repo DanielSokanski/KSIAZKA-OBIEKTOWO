@@ -20,11 +20,15 @@ class UzytkownikManadzer
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
     PlikZUzytkownikami plikZUzytkownikami;
-
-public:
     int idZalogowanegoUzytkownika;
-    UzytkownikManadzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {};
-    void wczytajUzytkownikowZPliku();
+public:
+
+    UzytkownikManadzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami){
+    idZalogowanegoUzytkownika = 0;
+    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+
+};
+    bool czyUzytkownikJestZalogowany();
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void zmianaHaslaZalogowanegoUzytkownika();
@@ -32,6 +36,8 @@ public:
     char wybierzOpcjeZMenuGlownego();
     char wczytajZnak();
     int logowanieUzytkownika();
+    void ustawIdZalogowanegoUzytkownika(int noweId);
+    int pobierzIdZalogowanegoUzytkownika();
     string wczytajLinie();
 };
 #endif

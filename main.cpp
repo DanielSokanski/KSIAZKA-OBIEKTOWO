@@ -5,16 +5,15 @@ using namespace std;
 
 int main()
 {
-    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
-    //KsiazkaAdresowa ksiazkaAdresowa("Adresaci.txt") ;
-    int idZalogowanegoUzytkownika = 0;
-    int idOstatniegoAdresata = 0;
-    int idUsunietegoAdresata = 0;
+    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt" , "Adresaci.txt");
+
+
+    int idOstatniegoAdresata;
     char wybor;
     vector<Adresat> adresaci;
     while (true)
     {
-        if (idZalogowanegoUzytkownika == 0)
+        if (ksiazkaAdresowa.czyUzytkownikJestZalogowany())
         {
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
 
@@ -25,7 +24,7 @@ int main()
                 break;
 
             case '2':
-                idZalogowanegoUzytkownika = ksiazkaAdresowa.logowanieUzytkownika();
+                ksiazkaAdresowa.logowanieUzytkownika();
                 break;
             case '9':
                 exit(0);
@@ -77,8 +76,7 @@ int main()
                 ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
                 break;
             case '8':
-                idZalogowanegoUzytkownika = 0;
-                adresaci.clear();
+                ksiazkaAdresowa.wylogowanieUzytkownika();
                 break;
             }
         }

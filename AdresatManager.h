@@ -7,30 +7,35 @@
 #include<fstream>
 #include <sstream>
 #include <algorithm>
-#include"MetodyPomocnicze.h"
+
 #include"UzytkownikManadzer.h"
 #include"PlikZUzytkownikami.h"
+#include"PlikZAdresatami.h"
 #include"Adresat.h"
 #include"Uzytkownik.h"
+#include"MetodyPomocnicze.h"
 using namespace std;
 
 class AdresatManager
 {
-    Uzytkownik uzytkownik;
-    int idOstatniegoAdresata=1;
+
     vector<Adresat> adresaci;
-    Adresat podajDaneNowegoAdresata();
+    const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
+    PlikZAdresatami plikZAdresami;
+    int idZalogowanegoUzytkownika;
+
 public:
-    //AdresatManadzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {};
-    //wczytajIdOstatniegoAdresata()
-    int idZalogowanegoUzytkownika = uzytkownik.pobierzId();
-    string wczytajLinie1();
-    char wczytajZnak1();
+    AdresatManadzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika) :
+        plikZAdresami(nazwaPlikuZAdresatami),ID_ZALOGOWANEGO_UZYTKOWNIKA (idZalogowanegoUzytkownika)
+        {
+        adresaci = plikZAdresami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+        }
+    Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata();
     void wyswietlWszystkichAdresatow();
-    string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
-    int dodajAdresata();
+    void dodajAdresata();
     char wybierzOpcjeZMenuUzytkownika();
+
 };
 
 
