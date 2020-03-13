@@ -8,12 +8,12 @@ int main()
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt" , "Adresaci.txt");
 
 
-    int idOstatniegoAdresata;
+    int idZalogowanegoUzytkownika=0;
     char wybor;
     vector<Adresat> adresaci;
     while (true)
     {
-        if (ksiazkaAdresowa.czyUzytkownikJestZalogowany())
+        if (ksiazkaAdresowa.czyUzytkownikJestZalogowany()==false)
         {
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
 
@@ -43,7 +43,8 @@ int main()
         else
         {
 
-            if (adresaci.empty() == true)
+            //if (adresaci.empty() == true)
+            if (ksiazkaAdresowa.czyUzytkownikJestZalogowany() == true)
                 // Pobieramy idOstatniegoAdresata, po to aby zoptymalizowac program.
                 // Dzieki temu, kiedy uztykwonik bedzie dodawal nowego adresata
                 // to nie bedziemy musieli jeszcze raz ustalac idOstatniegoAdresata

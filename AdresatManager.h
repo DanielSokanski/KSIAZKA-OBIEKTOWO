@@ -24,7 +24,7 @@ class AdresatManager
     int idZalogowanegoUzytkownika;
     void wyswietlDaneAdresata(Adresat adresat);
 public:
-    AdresatManadzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika) :
+    AdresatManager(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika) :
         plikZAdresatami(nazwaPlikuZAdresatami),ID_ZALOGOWANEGO_UZYTKOWNIKA (idZalogowanegoUzytkownika)
         {
         adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);

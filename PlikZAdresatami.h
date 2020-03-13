@@ -15,7 +15,7 @@ class PlikZAdresatami
     int idOstatniegoAdresata;
     bool czyPlikJestPusty(fstream &plikTekstowy);
 
-    string pobierzLiczbe(string tekst, int pozycjaZnaku);
+
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
@@ -26,7 +26,7 @@ public:
     vector<Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     int pobierzIdOstatniegoAdresata();
     bool czyPlikJestPusty();
-    int konwersjaStringNaInt(string liczba);
+
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
 };
 
