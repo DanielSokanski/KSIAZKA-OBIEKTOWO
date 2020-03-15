@@ -36,6 +36,7 @@ public:
     char wybierzOpcjeZMenuUzytkownika();
     void wyszukajAdresatowPoImieniu();
     void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
+    void wyszukajAdresatowPoNazwisku();
 };
 
 
