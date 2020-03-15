@@ -70,3 +70,8 @@ void KsiazkaAdresowa::wylogowanieUzytkownika()
     delete adresatManager;
     adresatManager = NULL;
 }
+
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
+{
+    adresatManager->wyszukajAdresatowPoImieniu();
+}

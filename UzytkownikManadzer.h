@@ -33,11 +33,9 @@ public:
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogowanieUzytkownika();
     char wybierzOpcjeZMenuGlownego();
-    char wczytajZnak();
     void logowanieUzytkownika();
     void ustawIdZalogowanegoUzytkownika(int noweId);
     int pobierzIdZalogowanegoUzytkownika();
-    string wczytajLinie();
 };
 #endif
 

@@ -10,7 +10,7 @@ int main()
 
     int idZalogowanegoUzytkownika=0;
     char wybor;
-    vector<Adresat> adresaci;
+    //vector<Adresat> adresaci;
     while (true)
     {
         if (ksiazkaAdresowa.czyUzytkownikJestZalogowany()==false)
@@ -42,23 +42,15 @@ int main()
         }
         else
         {
-
-            //if (adresaci.empty() == true)
             if (ksiazkaAdresowa.czyUzytkownikJestZalogowany() == true)
-                // Pobieramy idOstatniegoAdresata, po to aby zoptymalizowac program.
-                // Dzieki temu, kiedy uztykwonik bedzie dodawal nowego adresata
-                // to nie bedziemy musieli jeszcze raz ustalac idOstatniegoAdresata
-                //idOstatniegoAdresata = wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
-
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
-
             switch (wybor)
             {
             case '1':
                 ksiazkaAdresowa.dodajAdresata();
                 break;
             case '2':
-                //wyszukajAdresatowPoImieniu(adresaci);
+                ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
                 break;
             case '3':
                 //wyszukajAdresatowPoNazwisku(adresaci);
