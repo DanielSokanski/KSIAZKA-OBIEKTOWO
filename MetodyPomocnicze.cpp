@@ -78,3 +78,10 @@ int MetodyPomocnicze::konwersjaStringNaInt(string liczba)
 
     return liczbaInt;
 }
+int MetodyPomocnicze::podajIdWybranegoAdresata()
+{
+    int idWybranegoAdresata = 0;
+    cout << "Podaj numer ID Adresata: ";
+    idWybranegoAdresata  = wczytajLiczbeCalkowita();
+    return idWybranegoAdresata;
+}

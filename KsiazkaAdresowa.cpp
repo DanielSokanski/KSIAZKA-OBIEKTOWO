@@ -19,7 +19,7 @@ void KsiazkaAdresowa::logowanieUzytkownika()
     uzytkownikManadzer.logowanieUzytkownika();
     if (uzytkownikManadzer.czyUzytkownikJestZalogowany())
     {
-        adresatManager = new AdresatManager (NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikManadzer.pobierzIdZalogowanegoUzytkownika());
+        adresatManager = new AdresatManager (NAZWA_PLIKU_Z_ADRESATAMI,NAZWA_PLIKU_Z_ADRESATAMI_TYMCZASOWO, uzytkownikManadzer.pobierzIdZalogowanegoUzytkownika());
     }
 
 }
@@ -80,3 +80,9 @@ void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
 {
     adresatManager->wyszukajAdresatowPoNazwisku();
 }
+
+void KsiazkaAdresowa::usunAdresata()
+{
+    adresatManager->usunAdresata();
+}
+
