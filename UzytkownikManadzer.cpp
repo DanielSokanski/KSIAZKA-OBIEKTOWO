@@ -1,23 +1,5 @@
 #include "UzytkownikManadzer.h"
 
-char UzytkownikManadzer::wczytajZnak()
-{
-    string wejscie = "";
-    char znak  = {0};
-
-    while (true)
-    {
-        getline(cin, wejscie);
-
-        if (wejscie.length() == 1)
-        {
-            znak = wejscie[0];
-            break;
-        }
-        cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
-    }
-    return znak;
-}
 
 char UzytkownikManadzer::wybierzOpcjeZMenuGlownego()
 {
@@ -31,7 +13,7 @@ char UzytkownikManadzer::wybierzOpcjeZMenuGlownego()
     cout << "9. Koniec programu" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
-    wybor = wczytajZnak();
+    wybor = MetodyPomocnicze::wczytajZnak();
 
     return wybor;
 }
@@ -113,16 +95,13 @@ void UzytkownikManadzer::zmianaHaslaZalogowanegoUzytkownika()
     cout << "Podaj nowe haslo: ";
     cin.clear();
     cin >> noweHaslo;
-    //getline(cin, noweHaslo);//
-    //noweHaslo = MetodyPomocnicze.wczytajLinie();
-    //for (int i=0; i<uzytkownicy.size(); i++)
+
 
     for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
     {
-        //if (uzytkownicy[i].pobierzId()==idZalogowanegoUzytkownika)
         if (itr -> pobierzId() == idZalogowanegoUzytkownika)
         {
-            //uzytkownicy[i].pobierzHaslo()=noweHaslo;
+
             itr -> pobierzHaslo() = noweHaslo;
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
@@ -131,12 +110,6 @@ void UzytkownikManadzer::zmianaHaslaZalogowanegoUzytkownika()
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownik);
 }
 
-string UzytkownikManadzer::wczytajLinie()
-{
-    string wejscie = "";
-    getline(cin, wejscie);
-    return wejscie;
-}
 
 void UzytkownikManadzer::logowanieUzytkownika()
 {

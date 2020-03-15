@@ -34,7 +34,9 @@ public:
     void wyswietlWszystkichAdresatow();
     void dodajAdresata();
     char wybierzOpcjeZMenuUzytkownika();
-
+    void wyszukajAdresatowPoImieniu();
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
+    void wyszukajAdresatowPoNazwisku();
 };
 
 
