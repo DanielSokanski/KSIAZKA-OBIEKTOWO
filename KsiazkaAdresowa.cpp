@@ -80,3 +80,9 @@ void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
 {
     adresatManager->wyszukajAdresatowPoNazwisku();
 }
+
+void KsiazkaAdresowa::usunAdresata()
+{
+    adresatManager->usunAdresata();
+}
+

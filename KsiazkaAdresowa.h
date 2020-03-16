@@ -12,6 +12,7 @@ class KsiazkaAdresowa
     AdresatManager *adresatManager;
     const string NAZWA_PLIKU_Z_ADRESATAMI;
 
+
 public:
     KsiazkaAdresowa(string NazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) :
         uzytkownikManadzer(NazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
@@ -35,5 +36,6 @@ public:
     void wyswietlWszystkichAdresatow();
     void wyszukajAdresatowPoImieniu();
     void wyszukajAdresatowPoNazwisku();
+    void usunAdresata();
 };
 #endif
