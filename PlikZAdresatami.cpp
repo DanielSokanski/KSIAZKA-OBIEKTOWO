@@ -149,7 +149,7 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
     return liniaZDanymiAdresata;
 }
 
-void PlikZAdresatami::usunWybranaLinieWPliku()
+void PlikZAdresatami::usunWybranaLinieWPliku(int idUsuwanegoAdresata)
 {
     Adresat adresat;
     bool czyIstniejeAdresat = false;
@@ -158,11 +158,11 @@ void PlikZAdresatami::usunWybranaLinieWPliku()
     fstream plikTekstowy;
     plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
 
-    if (plikTekstowy.good() == true && adresat.pobierzId() != 0)
+    if (plikTekstowy.good() == true && idUsuwanegoAdresata != 0)
     {
         while(getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
         {
-            if(adresat.pobierzId() == pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
+            if(idUsuwanegoAdresata == pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
             {
                 czyIstniejeAdresat = true;
                 plikTekstowy.close();

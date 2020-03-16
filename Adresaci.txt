@@ -1,4 +1,3 @@
-
 1|1|Daniel|Sokanski|665|as|as|
-2|1|Michal|Sokanski||54as|666|
-3|1|Daniel|Subiekkt|sdasd|sad|asd|
+2|1|Daniel|Subiekkt|sdasd|sad|asd|
+4|1|Michal|Sokanski||54as|666|

@@ -12,7 +12,7 @@ using namespace std;
 class PlikZAdresatami
 {
     const string NAZWA_PLIKU_Z_ADRESATAMI;
-    const string NAZWA_PLIKU_Z_ADRESATAMI_TYMCZASOWO;
+    string NAZWA_PLIKU_Z_ADRESATAMI_TYMCZASOWO;
     int idOstatniegoAdresata;
     bool czyPlikJestPusty(fstream &plikTekstowy);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
@@ -20,6 +20,7 @@ class PlikZAdresatami
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
 public:
     PlikZAdresatami(string nazwaPlikuZAdresatami): NAZWA_PLIKU_Z_ADRESATAMI (nazwaPlikuZAdresatami) {
+    NAZWA_PLIKU_Z_ADRESATAMI_TYMCZASOWO = "Adresaci_tymczasowo.txt";
     idOstatniegoAdresata = 0;};
     void ustawNazwePlikuTymczasowego(string nazwaPlikuZAdresatamiTymczasowo);
     string pobierzNazwePlikuTymczasowego();
@@ -28,7 +29,7 @@ public:
     int pobierzIdOstatniegoAdresata();
     bool czyPlikJestPusty();
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
-    void usunWybranaLinieWPliku();
+    void usunWybranaLinieWPliku(int idUsuwanegoAdresata);
     void usunPlik(string nazwaPlikuZRozszerzeniem);
     void zmienNazwePliku(string staraNazwa, string nowaNazwa);
 };
