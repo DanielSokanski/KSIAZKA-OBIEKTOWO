@@ -299,6 +299,25 @@ void AdresatManager::edytujAdresata()
     system("pause");
 }
 
+string AdresatManager::zamienDanePojedynczegoAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(int idEdytowanegoAdresata)
+{
+
+    string liniaZDanymiAdresata = "";
+    for (int i=0; i<adresaci.size(); i++)
+    {
+        if (adresaci[i].pobierzId() == idEdytowanegoAdresata)
+        {
+            liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresaci[i].pobierzId()) + '|';
+            liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresaci[i].pobierzIdUzytkownika()) + '|';
+            liniaZDanymiAdresata += adresaci[i].pobierzImie() + '|';
+            liniaZDanymiAdresata += adresaci[i].pobierzNazwisko() + '|';
+            liniaZDanymiAdresata += adresaci[i].pobierzNumerTelefonu() + '|';
+            liniaZDanymiAdresata += adresaci[i].pobierzEmail() + '|';
+            liniaZDanymiAdresata += adresaci[i].pobierzAdres() + '|';
+        }
+    }
+    return liniaZDanymiAdresata;
+}
 char AdresatManager::wybierzOpcjeZMenuEdycja()
 {
     char wybor;
@@ -323,7 +342,7 @@ void AdresatManager::zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdy
     string liniaZDanymiAdresata = "";
 
     numerLiniiEdytowanegoAdresata = plikZAdresatami.zwrocNumerLiniiSzukanegoAdresata(idEdytowanegoAdresata);
-    liniaZDanymiAdresata = plikZAdresatami.zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+    liniaZDanymiAdresata = zamienDanePojedynczegoAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(idEdytowanegoAdresata);
     plikZAdresatami.edytujWybranegoAdresataWPliku(numerLiniiEdytowanegoAdresata, liniaZDanymiAdresata);
 
     cout << endl << "Dane zostaly zaktualizowane." << endl << endl;

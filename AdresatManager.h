@@ -42,6 +42,7 @@ public:
     void edytujAdresata();
     char wybierzOpcjeZMenuEdycja();
     void zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdytowanegoAdresata);
+    string zamienDanePojedynczegoAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(int idAdresata);
 };
 
 
