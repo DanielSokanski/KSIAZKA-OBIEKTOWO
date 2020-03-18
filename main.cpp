@@ -10,7 +10,6 @@ int main()
 
     PlikZAdresatami plikZAdresatami("Adresaci.txt");
     PlikZUzytkownikami plikZUzytkownikami ("Uzytkownicy.txt");
-    //plikZAdresatami.dopisz("tekst do dopisania");
 
     int idZalogowanegoUzytkownika=0;
     char wybor;

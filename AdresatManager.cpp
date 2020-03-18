@@ -1,6 +1,5 @@
 #include "AdresatManager.h"
 
-
 Adresat AdresatManager::podajDaneNowegoAdresata()
 {
     Adresat adresat;
@@ -52,13 +51,9 @@ void AdresatManager::dodajAdresata()
     system ("pause");
 }
 
-
-
-
 char AdresatManager::wybierzOpcjeZMenuUzytkownika()
 {
     char wybor;
-
     system("cls");
     cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
     cout << "---------------------------" << endl;
@@ -74,13 +69,11 @@ char AdresatManager::wybierzOpcjeZMenuUzytkownika()
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
     wybor = MetodyPomocnicze::wczytajZnak();
-
     return wybor;
 }
 
 void AdresatManager::wyswietlDaneAdresata(Adresat adresat)
 {
-
     cout << endl << "Id:                 " << adresat.pobierzId() << endl;
     cout << "Imie:               " << adresat.pobierzImie() << endl;
     cout << "Nazwisko:           " << adresat.pobierzNazwisko() << endl;
@@ -98,7 +91,6 @@ void AdresatManager::wyswietlWszystkichAdresatow()
         cout << "             >>> ADRESACI <<<" << endl;
         cout << "-----------------------------------------------" << endl;
         for (int i=0; i<adresaci.size(); i++)
-        //for (vector <Adresat> :: iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
         {
                 cout << endl << "Id:                 " << adresaci[i].pobierzId() << endl;
                 cout << "Imie:               " << adresaci[i].pobierzImie() << endl;
@@ -209,7 +201,6 @@ int AdresatManager::usunAdresata()
             znak = MetodyPomocnicze::wczytajZnak();
             if ((znak == 't')||(znak == 'T'))
             {
-                //numerLiniiUsuwanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
                 plikZAdresatami.usunWybranaLinieWPliku(idUsuwanegoAdresata);
                 adresaci.erase(itr);
                 cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
@@ -247,7 +238,6 @@ void AdresatManager::edytujAdresata()
     bool czyIstniejeAdresat = false;
 
     for (int i = 0; i < adresaci.size(); i++)
-    //for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
     {
         if (adresaci[i].pobierzId() == idEdytowanegoAdresata)
         {

@@ -1,10 +1,8 @@
 #include "UzytkownikManadzer.h"
 
-
 char UzytkownikManadzer::wybierzOpcjeZMenuGlownego()
 {
     char wybor;
-
     system("cls");
     cout << "    >>> MENU  GLOWNE <<<" << endl;
     cout << "---------------------------" << endl;
@@ -14,7 +12,6 @@ char UzytkownikManadzer::wybierzOpcjeZMenuGlownego()
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
     wybor = MetodyPomocnicze::wczytajZnak();
-
     return wybor;
 }
 
@@ -30,18 +27,14 @@ int UzytkownikManadzer::pobierzIdZalogowanegoUzytkownika()
 void UzytkownikManadzer::rejestracjaUzytkownika()
 {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
-
     uzytkownicy.push_back(uzytkownik);
-
     plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
-
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");
 }
 Uzytkownik UzytkownikManadzer::podajDaneNowegoUzytkownika()
 {
     Uzytkownik uzytkownik;
-
     uzytkownik.ustawId(pobierzIdNowegoUzytkownika());
     string login;
     do
@@ -54,7 +47,6 @@ Uzytkownik UzytkownikManadzer::podajDaneNowegoUzytkownika()
     cout << "Podaj haslo: ";
     cin >> haslo;
     uzytkownik.ustawHaslo(haslo);
-
     return uzytkownik;
 }
 int UzytkownikManadzer::pobierzIdNowegoUzytkownika()
@@ -93,32 +85,40 @@ void UzytkownikManadzer::zmianaHaslaZalogowanegoUzytkownika()
     Uzytkownik uzytkownik;
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
-    cin.clear();
-    cin >> noweHaslo;
-
-
+    noweHaslo = MetodyPomocnicze::wczytajLinie();
     for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
     {
         if (itr -> pobierzId() == idZalogowanegoUzytkownika)
         {
 
-            itr -> pobierzHaslo() = noweHaslo;
+            itr -> ustawHaslo(noweHaslo);
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
         }
     }
-    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownik);
+    for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
+    {
+            cout << itr -> pobierzId() << endl;
+            cout << itr -> pobierzLogin() << endl;
+            cout << itr -> pobierzHaslo() << endl;
+            system("pause");
+    }
+    for (int i=0; i<uzytkownicy.size(); i++)
+    {
+            cout << uzytkownicy[i].pobierzId() << endl;
+            cout << uzytkownicy[i].pobierzLogin() << endl;
+            cout << uzytkownicy[i].pobierzHaslo() << endl;
+            system("pause");
+    }
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
-
 
 void UzytkownikManadzer::logowanieUzytkownika()
 {
     Uzytkownik uzytkownik;
     string login = "", haslo = "";
-
     cout << endl << "Podaj login: ";
     login = MetodyPomocnicze::wczytajLinie();
-
     vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
     while (itr != uzytkownicy.end())
     {

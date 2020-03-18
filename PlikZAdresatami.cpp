@@ -1,19 +1,7 @@
 #include "PlikZAdresatami.h"
 
-/*
-bool PlikZAdresatami::czyPlikJestPusty()
-{
-    fstream plikTekstowy;
-    plikTekstowy.seekg(0, ios::end);
-    if (plikTekstowy.tellg() == 0)
-        return true;
-    else
-        return false;
-}
-*/
 bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 {
-
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
     plikTekstowy.open(pobierzNazwePliku().c_str(), ios::out | ios::app);
@@ -37,8 +25,6 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
     return false;
 }
 
-
-
 int PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
 {
     string liczba;
@@ -47,6 +33,7 @@ int PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(strin
     int idAdresata =  MetodyPomocnicze::konwersjaStringNaInt(liczba);
     return idAdresata;
 }
+
 Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami)
 {
     Adresat adresat;
@@ -121,6 +108,7 @@ vector<Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(i
     else
         return adresaci;
 }
+
 int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
 {
     int pozycjaRozpoczeciaIdUzytkownika = daneJednegoAdresataOddzielonePionowymiKreskami.find_first_of('|') + 1;
@@ -156,7 +144,7 @@ void PlikZAdresatami::usunWybranaLinieWPliku(int idUsuwanegoAdresata)
     int numerLiniiWPlikuTekstowym = 1;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     fstream plikTekstowy;
-    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    plikTekstowy.open(pobierzNazwePliku().c_str(), ios::in);
 
     if (plikTekstowy.good() == true && idUsuwanegoAdresata != 0)
     {
@@ -176,14 +164,11 @@ void PlikZAdresatami::usunWybranaLinieWPliku(int idUsuwanegoAdresata)
             plikTekstowy.close();
         }
     }
-
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
     string wczytanaLinia = "";
     int numerWczytanejLinii = 1;
-
     odczytywanyPlikTekstowy.open(pobierzNazwePliku().c_str(), ios::in);
     tymczasowyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI_TYMCZASOWO.c_str(), ios::out | ios::app);
-
     if (odczytywanyPlikTekstowy.good() == true && numerLiniiWPlikuTekstowym != 0)
     {
         while (getline(odczytywanyPlikTekstowy, wczytanaLinia))
@@ -203,11 +188,11 @@ void PlikZAdresatami::usunWybranaLinieWPliku(int idUsuwanegoAdresata)
         }
         odczytywanyPlikTekstowy.close();
         tymczasowyPlikTekstowy.close();
-
         usunPlik(pobierzNazwePliku());
         zmienNazwePliku(NAZWA_PLIKU_Z_ADRESATAMI_TYMCZASOWO, pobierzNazwePliku());
     }
 }
+
 void PlikZAdresatami::usunPlik(string nazwaPlikuZRozszerzeniem)
 {
     if (remove(nazwaPlikuZRozszerzeniem.c_str()) == 0) {}
@@ -229,7 +214,6 @@ int PlikZAdresatami::zwrocNumerLiniiSzukanegoAdresata(int idAdresata)
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     fstream plikTekstowy;
     plikTekstowy.open(pobierzNazwePliku().c_str(), ios::in);
-
     if (plikTekstowy.good() == true && idAdresata != 0)
     {
         while(getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
@@ -257,7 +241,6 @@ void PlikZAdresatami::edytujWybranegoAdresataWPliku(int numerEdytowanejLinii, st
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
     string wczytanaLinia = "";
     int numerWczytanejLinii = 1;
-
     odczytywanyPlikTekstowy.open(pobierzNazwePliku().c_str(), ios::in);
     tymczasowyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI_TYMCZASOWO.c_str(), ios::out | ios::app);
 
@@ -289,19 +272,3 @@ void PlikZAdresatami::edytujWybranegoAdresataWPliku(int numerEdytowanejLinii, st
     }
 }
 
-/*void PlikZAdresatami::dopisz(string tekst)
-{
-        fstream plikTekstowy;
-        plikTekstowy.open(pobierzNazwePliku().c_str(), ios::app);
-
-        if (plikTekstowy.good() == true)
-        {
-            if (czyPlikJestPusty())
-                plikTekstowy << "To jest poczatek pliku" << endl;
-
-             plikTekstowy << tekst << endl;
-        }
-
-        plikTekstowy.close();
-}
-*/

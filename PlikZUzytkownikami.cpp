@@ -6,7 +6,6 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku()
     Uzytkownik uzytkownik;
     vector <Uzytkownik> uzytkownicy;
     string daneJednegoUzytkownikaOddzielonePionowymiKreskami = "";
-    //fstream plikTekstowy;
     plikTekstowy.open(pobierzNazwePliku().c_str(), ios::in);
 
     if (plikTekstowy.good() == true)
@@ -57,7 +56,6 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
 void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
 {
     string liniaZDanymiUzytkownika = "";
-    //fstream plikTekstowy;
     plikTekstowy.open(pobierzNazwePliku().c_str(), ios::app);
     if (plikTekstowy.good() == true)
     {
@@ -77,38 +75,36 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
     plikTekstowy.close();
 }
 
-/*
-bool PlikZUzytkownikami::czyPlikJestPusty()
-{
-    //fstream plikTekstowy;
-    plikTekstowy.seekg(0, ios::end);
-    if (plikTekstowy.tellg() == 0)
-        return true;
-    else
-        return false;
-}*/
 string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik)
 {
     string liniaZDanymiUzytkownika = "";
-
     liniaZDanymiUzytkownika += MetodyPomocnicze::konwerjsaIntNaString(uzytkownik.pobierzId())+ '|';
     liniaZDanymiUzytkownika += uzytkownik.pobierzLogin() + '|';
     liniaZDanymiUzytkownika += uzytkownik.pobierzHaslo() + '|';
-
     return liniaZDanymiUzytkownika;
 }
-void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(Uzytkownik uzytkownik)
+
+string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskamiCalegoWektora(vector<Uzytkownik> uzytkownicy, int i)
+{
+        string liniaZDanymiUzytkownika = "";
+        liniaZDanymiUzytkownika += MetodyPomocnicze::konwerjsaIntNaString(uzytkownicy[i].pobierzId())+ '|';
+        liniaZDanymiUzytkownika += uzytkownicy[i].pobierzLogin() + '|';
+        liniaZDanymiUzytkownika += uzytkownicy[i].pobierzHaslo() + '|';
+        return liniaZDanymiUzytkownika;
+}
+
+void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector<Uzytkownik> uzytkownicy)
 {
     string liniaZDanymiUzytkownika = "";
-    //fstream plikTekstowy;
+    fstream plikTekstowy;
     plikTekstowy.open(pobierzNazwePliku().c_str(),ios::out | ios::trunc);
     plikTekstowy.close();
     plikTekstowy.open(pobierzNazwePliku().c_str(), ios::app);
     if (plikTekstowy.good() == true)
     {
-        for (int j=0; j<uzytkownicy.size(); j++){
-        liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
-
+        for (int i=0; i<uzytkownicy.size(); i++)
+        {
+        liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskamiCalegoWektora(uzytkownicy, i);
         if (czyPlikJestPusty() == true)
         {
             plikTekstowy << liniaZDanymiUzytkownika;
@@ -117,10 +113,11 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(Uzytkownik uzytkown
         {
             plikTekstowy << endl << liniaZDanymiUzytkownika ;
         }
-        j++;
         }
     }
     else
+    {
         cout << "Nie udalo sie otworzyc pliku " << pobierzNazwePliku() << " i zapisac w nim danych." << endl;
+    }
     plikTekstowy.close();
 }

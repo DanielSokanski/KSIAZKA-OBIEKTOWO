@@ -1,6 +1,5 @@
 #include "PlikTekstowy.h"
 
-
 bool PlikTekstowy::czyPlikJestPusty()
 {
         bool pusty = true;

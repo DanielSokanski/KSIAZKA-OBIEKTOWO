@@ -1,2 +1,4 @@
-
-1|1|Danielek|Sokanski|6556|asd|asd|
+1|1|Daniel|Sokanski|asdas|asdas|asdsa|
+3|2|Haslo|Haslo|sadsda|asdas|asd|
+4|2|Haslo1|Haslo1|asdsa||asas|
+6|1|Michalek|Sokanski|sad|aa|sdd|

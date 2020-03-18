@@ -30,7 +30,6 @@ public:
         adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
         };
     Adresat podajDaneNowegoAdresata();
-
     void wyswietlWszystkichAdresatow();
     void dodajAdresata();
     char wybierzOpcjeZMenuUzytkownika();

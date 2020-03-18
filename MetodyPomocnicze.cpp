@@ -42,7 +42,6 @@ char MetodyPomocnicze::wczytajZnak()
     return znak;
 }
 
-
 int MetodyPomocnicze::wczytajLiczbeCalkowita()
 {
     string wejscie = "";
