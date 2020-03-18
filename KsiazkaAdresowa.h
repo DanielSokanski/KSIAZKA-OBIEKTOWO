@@ -14,8 +14,9 @@ class KsiazkaAdresowa
 
 
 public:
-    KsiazkaAdresowa(string NazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) :
-        uzytkownikManadzer(NazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
+    KsiazkaAdresowa
+    (string NazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) :
+    uzytkownikManadzer(NazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
     {
     adresatManager = NULL;
     };

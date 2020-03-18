@@ -1,12 +1,16 @@
 #include<iostream>
 #include"KsiazkaAdresowa.h"
-
+#include"PlikZAdresatami.h"
+#include"PlikZUzytkownikami.h"
 using namespace std;
 
 int main()
 {
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt" , "Adresaci.txt");
 
+    PlikZAdresatami plikZAdresatami("Adresaci.txt");
+    PlikZUzytkownikami plikZUzytkownikami ("Uzytkownicy.txt");
+    //plikZAdresatami.dopisz("tekst do dopisania");
 
     int idZalogowanegoUzytkownika=0;
     char wybor;
