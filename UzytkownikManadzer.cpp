@@ -96,20 +96,6 @@ void UzytkownikManadzer::zmianaHaslaZalogowanegoUzytkownika()
             system("pause");
         }
     }
-    for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
-    {
-            cout << itr -> pobierzId() << endl;
-            cout << itr -> pobierzLogin() << endl;
-            cout << itr -> pobierzHaslo() << endl;
-            system("pause");
-    }
-    for (int i=0; i<uzytkownicy.size(); i++)
-    {
-            cout << uzytkownicy[i].pobierzId() << endl;
-            cout << uzytkownicy[i].pobierzLogin() << endl;
-            cout << uzytkownicy[i].pobierzHaslo() << endl;
-            system("pause");
-    }
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 
