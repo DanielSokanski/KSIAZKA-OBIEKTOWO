@@ -272,3 +272,31 @@ void PlikZAdresatami::edytujWybranegoAdresataWPliku(int numerEdytowanejLinii, st
     }
 }
 
+int PlikZAdresatami::wczytajOstatniIdZPliku()
+{
+    vector<string> numbersOfUsers;
+    int ostatniId;
+    fstream lista;
+    string linia, temp;
+    lista.open(pobierzNazwePliku().c_str(), ios::in);
+    while (getline(lista, linia)) {
+        for(int j = 0; j < linia.length(); j++) {
+            if (linia[j] != '|') {
+                temp = temp + linia[j];
+            } else {
+                break;
+            }
+            numbersOfUsers.push_back(temp);
+            temp.clear();
+        }
+    }
+    lista.close();
+    if (czyPlikJestPusty() == true){
+            ostatniId = 1;
+    return ostatniId;
+    } else {
+    ostatniId = atoi(numbersOfUsers[numbersOfUsers.size()-1].c_str());
+    numbersOfUsers.clear();
+    return ostatniId;
+    }
+}

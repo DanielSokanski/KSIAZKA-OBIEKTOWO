@@ -33,6 +33,7 @@ public:
     void zmienNazwePliku(string staraNazwa, string nowaNazwa);
     int zwrocNumerLiniiSzukanegoAdresata(int idEdytowanegoAdresata);
     void edytujWybranegoAdresataWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
+    int wczytajOstatniIdZPliku();
 };
 
 

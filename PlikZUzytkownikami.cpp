@@ -84,7 +84,7 @@ string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowym
     return liniaZDanymiUzytkownika;
 }
 
-string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskamiCalegoWektora(vector<Uzytkownik> uzytkownicy, int i)
+string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskamiCalegoWektora(vector<Uzytkownik> &uzytkownicy, int i)
 {
         string liniaZDanymiUzytkownika = "";
         liniaZDanymiUzytkownika += MetodyPomocnicze::konwerjsaIntNaString(uzytkownicy[i].pobierzId())+ '|';
@@ -93,10 +93,12 @@ string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowym
         return liniaZDanymiUzytkownika;
 }
 
-void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector<Uzytkownik> uzytkownicy)
+void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector<Uzytkownik> &uzytkownicy)
 {
     string liniaZDanymiUzytkownika = "";
     fstream plikTekstowy;
+    cout << uzytkownicy.size() << endl;
+    system("pause");
     plikTekstowy.open(pobierzNazwePliku().c_str(),ios::out | ios::trunc);
     plikTekstowy.close();
     plikTekstowy.open(pobierzNazwePliku().c_str(), ios::app);
@@ -104,6 +106,8 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector<Uzytkownik> 
     {
         for (int i=0; i<uzytkownicy.size(); i++)
         {
+        plikTekstowy.close();
+        plikTekstowy.open(pobierzNazwePliku().c_str(), ios::app);
         liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskamiCalegoWektora(uzytkownicy, i);
         if (czyPlikJestPusty() == true)
         {
@@ -111,7 +115,7 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector<Uzytkownik> 
         }
         else
         {
-            plikTekstowy << endl << liniaZDanymiUzytkownika ;
+            plikTekstowy <<  endl <<liniaZDanymiUzytkownika ;
         }
         }
     }

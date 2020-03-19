@@ -5,7 +5,8 @@ Adresat AdresatManager::podajDaneNowegoAdresata()
     Adresat adresat;
     string imie, nazwisko, numerTelefonu, email, adres;
 
-    adresat.ustawId((plikZAdresatami.pobierzIdOstatniegoAdresata()+1));
+
+    adresat.ustawId(plikZAdresatami.wczytajOstatniIdZPliku()+1);
     adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
@@ -337,3 +338,4 @@ void AdresatManager::zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdy
 
     cout << endl << "Dane zostaly zaktualizowane." << endl << endl;
 }
+
