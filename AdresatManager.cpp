@@ -6,7 +6,7 @@ Adresat AdresatManager::podajDaneNowegoAdresata()
     string imie, nazwisko, numerTelefonu, email, adres;
 
 
-    adresat.ustawId(plikZAdresatami.wczytajOstatniIdZPliku()+1);
+    adresat.ustawId(plikZAdresatami.wczytajOstatniIdZPliku());
     adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";

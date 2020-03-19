@@ -295,7 +295,8 @@ int PlikZAdresatami::wczytajOstatniIdZPliku()
             ostatniId = 1;
     return ostatniId;
     } else {
-    ostatniId = atoi(numbersOfUsers[numbersOfUsers.size()-1].c_str());
+    ostatniId = atoi(numbersOfUsers[numbersOfUsers.size()-1].c_str())+1;
+
     numbersOfUsers.clear();
     return ostatniId;
     }
